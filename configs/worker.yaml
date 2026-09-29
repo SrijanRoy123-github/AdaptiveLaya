@@ -1,10 +1,10 @@
-project:
+﻿project:
   name: adaptive-laya-600m
 datasets:
-  decisions: judata1/adaptive-laya-decisions
-  merged: judata1/adaptive-laya-merged
-  shards: judata1/adaptive-laya-shards
-  features: judata1/adaptive-laya-features
+  decisions: srijanroysr10/adaptive-laya-decisions
+  merged: srijanroysr10/adaptive-laya-merged
+  shards: srijanroysr10/adaptive-laya-shards
+  features: srijanroysr10/adaptive-laya-features
   real:
     - domain: coding
       source: hf
@@ -55,12 +55,12 @@ workers:
     seed: 42
     shard_count: 3
     specialization: swe_repair
-    artifact_slug: judata1/adaptive-laya-worker-0
+    artifact_slug: srijanroysr10/adaptive-laya-worker-0
   - id: 1
     seed: 43
     shard_count: 3
     specialization: codegen
-    artifact_slug: judata1/adaptive-laya-worker-1
+    artifact_slug: srijanroysr10/adaptive-laya-worker-1
 shared_validation_fraction: 0.1
 shared_test_fraction: 0.1
 common_mixture: 0.7
@@ -69,3 +69,4 @@ session:
   max_session_hours: 10.0
   publish_at_hours: 9.5
   checkpoint_every_steps: 500
+
