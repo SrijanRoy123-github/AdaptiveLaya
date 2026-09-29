@@ -1,0 +1,10 @@
+aggregation:
+  method: validation_weighted
+  weight_by: examples
+  validation_gate: true
+  min_workers: 2
+  rounds: 2
+  experiments:
+    - best_worker
+    - equal_weight
+    - validation_weighted

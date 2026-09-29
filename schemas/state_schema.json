@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "user_request", "repository_summary", "relevant_file_context",
+    "recent_changes", "previous_actions", "test_results",
+    "previous_tool_result", "remaining_token_budget",
+    "remaining_tool_budget", "remaining_latency_budget_ms",
+    "step_index", "previous_confidence"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "user_request": {"type": "string"},
+    "repository_summary": {"type": "string"},
+    "relevant_file_context": {"type": "string"},
+    "recent_changes": {"type": "string"},
+    "previous_actions": {"type": "array", "items": {"type": "string"}},
+    "test_results": {"type": "string"},
+    "previous_tool_result": {"type": "string"},
+    "remaining_token_budget": {"type": "integer", "minimum": 0},
+    "remaining_tool_budget": {"type": "integer", "minimum": 0},
+    "remaining_latency_budget_ms": {"type": "integer", "minimum": 0},
+    "step_index": {"type": "integer", "minimum": 0},
+    "previous_confidence": {"type": "number", "minimum": 0, "maximum": 1}
+  }
+}

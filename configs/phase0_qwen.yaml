@@ -1,0 +1,25 @@
+phase: 0
+mode: probe
+backbone:
+  kind: decoder
+  model_id: Qwen/Qwen2.5-Coder-0.5B-Instruct
+  dtype: float16
+  route_token: "<|route|>"
+router:
+  hidden_size: 896
+  mlp_hidden: 512
+  mlp_out: 256
+training:
+  lr: 3.0e-4
+  epochs: 5
+  batch_size: 64
+  weight_decay: 0.01
+  fp16: true
+  seed: 42
+eval:
+  ece_bins: 15
+  bootstrap_samples: 1000
+  gates:
+    macro_f1: 0.70
+    hard_negative_accuracy: 0.75
+    ece_max: 0.15

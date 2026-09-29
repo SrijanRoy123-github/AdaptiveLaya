@@ -1,0 +1,18 @@
+phase: 1
+backbone:
+  model_id: Qwen/Qwen2.5-Coder-0.5B-Instruct
+  dtype: float16
+agent:
+  regime: NORMAL
+  observation_max_tokens: 800
+  tools_timeout_s: 60
+evaluation:
+  n_tasks: 500
+  test_subset: 100
+  baselines:
+    - pure_generation
+    - always_answer
+    - always_test
+    - keyword_router
+    - react_loop
+    - adaptive_laya

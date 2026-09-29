@@ -1,0 +1,13 @@
+torch>=2.1
+transformers>=4.44
+peft>=0.12
+datasets>=2.20
+accelerate>=0.33
+jsonschema>=4.22
+PyYAML>=6.0
+numpy>=1.26
+tqdm>=4.66
+ruff>=0.5
+kaggle>=1.6
+kagglehub>=0.2
+pytest>=8.0

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["action", "terminal", "confidence"],
+  "additionalProperties": false,
+  "properties": {
+    "action": {"enum": ["ANSWER", "TOOL", "ASK"]},
+    "tool": {"enum": ["RUN_TESTS", "LINT", "READ_CONTEXT", "SEARCH_REPOSITORY", "VLSI_SPICE", "VLSI_SYNTHESIZE", "VLSI_LAYOUT", "VLSI_ROUTE", "CAD_DRC", "CAD_LAYOUT", "MATH_COMPUTE", "REASON_DEDUCE", "BOOK_SUMMARIZE", "SCIENCE_QUERY", null]},
+    "terminal": {"enum": ["CONTINUE", "DONE", "ESCALATE"]},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"action": {"const": "TOOL"}}},
+      "then": {"required": ["tool"], "properties": {"tool": {"enum": ["RUN_TESTS", "LINT", "READ_CONTEXT", "SEARCH_REPOSITORY", "VLSI_SPICE", "VLSI_SYNTHESIZE", "VLSI_LAYOUT", "VLSI_ROUTE", "CAD_DRC", "CAD_LAYOUT", "MATH_COMPUTE", "REASON_DEDUCE", "BOOK_SUMMARIZE", "SCIENCE_QUERY"]}}}
+    },
+    {
+      "if": {"properties": {"action": {"enum": ["ANSWER", "ASK"]}}},
+      "then": {"properties": {"tool": {"enum": [null]}}}
+    }
+  ]
+}

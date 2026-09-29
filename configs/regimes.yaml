@@ -1,0 +1,16 @@
+regimes:
+  LOW:
+    max_tokens: 250
+    max_tools: 1
+    max_latency_ms: 20000
+    max_steps: 4
+  NORMAL:
+    max_tokens: 750
+    max_tools: 2
+    max_latency_ms: 60000
+    max_steps: 8
+  HIGH:
+    max_tokens: 1500
+    max_tools: 4
+    max_latency_ms: 120000
+    max_steps: 12

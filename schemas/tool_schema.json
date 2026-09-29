@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["tool", "args"],
+  "additionalProperties": false,
+  "properties": {
+    "tool": {"enum": ["RUN_TESTS", "LINT", "READ_CONTEXT", "SEARCH_REPOSITORY"]},
+    "args": {
+      "type": "object",
+      "properties": {
+        "target": {"type": "string"},
+        "path": {"type": "string"},
+        "pattern": {"type": "string"},
+        "timeout_s": {"type": "integer", "minimum": 1, "maximum": 300}
+      },
+      "additionalProperties": true
+    }
+  }
+}

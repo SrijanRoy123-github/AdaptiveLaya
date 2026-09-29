@@ -1,0 +1,28 @@
+phase: 2
+mode: lora
+backbone:
+  model_id: Qwen/Qwen2.5-Coder-0.5B-Instruct
+  dtype: float16
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj]
+router:
+  hidden_size: 896
+  mlp_hidden: 512
+  mlp_out: 256
+loss:
+  lambda_action: 1.0
+  lambda_tool: 1.0
+  lambda_terminal: 1.0
+  lambda_conf: 0.5
+  lambda_budget: 0.0
+training:
+  lr: 2.0e-4
+  micro_batch_size: 1
+  gradient_accumulation: 16
+  epochs: 1
+  fp16: true
+  local_steps: 5000
+rounds: 2

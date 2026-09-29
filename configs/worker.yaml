@@ -1,0 +1,71 @@
+project:
+  name: adaptive-laya-600m
+datasets:
+  decisions: judata1/adaptive-laya-decisions
+  merged: judata1/adaptive-laya-merged
+  shards: judata1/adaptive-laya-shards
+  features: judata1/adaptive-laya-features
+  real:
+    - domain: coding
+      source: hf
+      slug: iamtarun/python_code_instructions_18k_alpaca
+      max_records: 10000
+    - domain: coding
+      source: hf
+      slug: HuggingFaceH4/CodeAlpaca_20K
+      max_records: 10000
+    - domain: coding
+      source: hf
+      slug: google-research-datasets/mbpp
+    - domain: math
+      source: hf
+      slug: openai/gsm8k
+    - domain: math
+      source: hf
+      slug: HuggingFaceH4/MATH
+    - domain: reasoning
+      source: hf
+      slug: Open-Orca/OpenOrca
+      max_records: 5000
+    - domain: reasoning
+      source: hf
+      slug: databricks/databricks-dolly-15k
+    - domain: science
+      source: hf
+      slug: cais/mmlu
+    - domain: science
+      source: hf
+      slug: allenai/sciq
+    - domain: book
+      source: hf
+      slug: kmfoda/booksum
+    - domain: vlsi
+      source: hf
+      slug: shailja/Verilog_GitHub
+      max_records: 5000
+    - domain: cad
+      source: hf
+      slug: gnucleus-ai/cad-gen-freecad
+    - domain: circuit
+      source: hf
+      slug: pphilip/analog-circuits-sky130
+      max_records: 10000
+workers:
+  - id: 0
+    seed: 42
+    shard_count: 3
+    specialization: swe_repair
+    artifact_slug: judata1/adaptive-laya-worker-0
+  - id: 1
+    seed: 43
+    shard_count: 3
+    specialization: codegen
+    artifact_slug: judata1/adaptive-laya-worker-1
+shared_validation_fraction: 0.1
+shared_test_fraction: 0.1
+common_mixture: 0.7
+specialization_fraction: 0.3
+session:
+  max_session_hours: 10.0
+  publish_at_hours: 9.5
+  checkpoint_every_steps: 500

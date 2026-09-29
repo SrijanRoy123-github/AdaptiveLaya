@@ -1,0 +1,10 @@
+utility:
+  success_reward: 1.0
+  alpha_tokens: 2.0e-4
+  beta_tool_calls: 5.0e-2
+  gamma_latency_ms: 1.0e-5
+  delta_router_forwards: 1.0e-3
+cost_ledger:
+  alpha_tool_calls: 5.0e-2
+  beta_router_forwards: 1.0e-3
+  gamma_wall_ms: 1.0e-5
